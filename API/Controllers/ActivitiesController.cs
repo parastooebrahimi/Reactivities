@@ -10,18 +10,15 @@ namespace API.Controllers
 {
     public class ActivitiesController :BaseApiController
     {
-        private readonly IMediator _mediator;
-        public ActivitiesController(IMediator mediator) //ctor snipes for counstructoor 
-        {
-          _mediator = mediator;
-     
-            
-        }
+
+
+ 
 
         [HttpGet]  // api/activities
         public async Task<ActionResult<List<Activity>>> GetActivities()
         {
-            return await _mediator.Send(new List.Query());
+            // return await _context.Activities.ToListAsync();
+            return await Mediator.Send(new List.Query());
         }
 
 
@@ -29,7 +26,7 @@ namespace API.Controllers
         public async Task<ActionResult<Activity>> GetActivity(Guid id)
 
         {
-            return Ok();
+            return await Mediator.Send(new Details.Query{Id=id });
         }
     }
 }
