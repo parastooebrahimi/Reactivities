@@ -49,6 +49,7 @@ namespace API.Controllers
             return Ok();
 
         }
+        
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteActivity(Guid id)

@@ -17,7 +17,7 @@ builder.Services.AddDbContext<DataContext>(opt=>{ // the type should be the data
 
 builder.Services.AddCors(opt=>{
     opt.AddPolicy("CorsPolicy", policy=>{
-        policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3001");
+        policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
     });
 });
 
