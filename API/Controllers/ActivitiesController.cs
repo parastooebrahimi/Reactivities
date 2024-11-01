@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
+// Request Models and Response Models: Separate from your domain models, these are used to define the shape of 
+// data expected in requests and responses. This separation allows you to keep the domain layer isolated 
+// from any presentation concerns.
+
 namespace API.Controllers
 {
     public class ActivitiesController :BaseApiController
@@ -33,7 +37,10 @@ namespace API.Controllers
       
             // line below was passing params for okay but I git below error:
             // Argument 1: cannot convert from 'void' to 'object?
-
+            // The Mediator.Send() method sends the Create.Command instance to MediatR.
+            // MediatR finds the handler associated with the Create.Command class. 
+            // This handler is defined in the Application layer as Create.Handler.
+            
             await Mediator.Send(new Create.Command {Activity = activity});
             return Ok();
 

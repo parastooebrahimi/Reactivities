@@ -17,14 +17,21 @@ If you are developing a production application, we recommend updating the config
 export default {
   // other rules...
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: ["./tsconfig.json", "./tsconfig.node.json"],
     tsconfigRootDir: __dirname,
   },
-}
+};
 ```
 
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+## Additional Important Concepts
+
+- Repository Pattern: Repositories abstract data persistence, providing a collection-like interface for accessing entities. For example, OrderRepository might have methods like Add(Order order) or GetById(int id).
+- Dependency Injection (DI): .NET Core has built-in DI, which is crucial for managing dependencies between layers and keeping code modular and testable.
+- Unit Testing: Test the domain layer’s business logic independently from other layers. For example, create unit tests for the Order entity to check if it - - calculates totals correctly.
+- Mapping: Use a library like AutoMapper to convert between DTOs (used in the Application layer) and domain entities.
